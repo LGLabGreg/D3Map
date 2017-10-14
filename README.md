@@ -1,2 +1,3 @@
-# ES6-Webpack
-ES6 Webpack starter kit
+## ECMAScript 6 Tutorial
+
+Starting point for the ECMAScript 6 Data Tutorial
