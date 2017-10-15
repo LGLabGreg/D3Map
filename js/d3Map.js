@@ -24,11 +24,6 @@ export default class d3Map {
         this.selectedColor = '#00f';
         this.strokeColor = '#000';
         this.strokeWidth = 0.5;
-
-        this.transition = d3.transition()
-          .on("interrupt", function(d,i){
-            console.info(i);
-          });
     }
     
     mouseover(d) {
@@ -59,13 +54,12 @@ export default class d3Map {
               .style("stroke-width", this.strokeWidth)
               .on("mouseover", function(d,i) {
                 d3.select(this)
-                  .transition(context.transition)
+                  .transition().duration(300)
                   .style("fill", context.overColor);
                 })
               .on("mouseout", function(d,i) {
-                d3.select(this).interrupt();
                 d3.select(this)
-                  .transition(context.transition)
+                  .transition().duration(300)
                   .style("fill", context.baseColor);
                 });
         });

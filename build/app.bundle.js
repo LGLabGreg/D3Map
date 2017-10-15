@@ -12470,10 +12470,6 @@ var d3Map = function () {
         this.selectedColor = '#00f';
         this.strokeColor = '#000';
         this.strokeWidth = 0.5;
-
-        this.transition = d3.transition().on("interrupt", function (d, i) {
-            console.info(i);
-        });
     }
 
     _createClass(d3Map, [{
@@ -12502,10 +12498,9 @@ var d3Map = function () {
             d3.json("json/custom.geo.json", function (error, json) {
                 //var us = topojson.feature(topojsonData, topojsonData.objects.states);
                 _this.mapContainer.selectAll("path").data(json.features).enter().append("path").attr("d", _this.path).attr("class", "country").style("fill", _this.baseColor).style("stroke", _this.strokeColor).style("stroke-width", _this.strokeWidth).on("mouseover", function (d, i) {
-                    d3.select(this).transition(context.transition).style("fill", context.overColor);
+                    d3.select(this).transition().duration(300).style("fill", context.overColor);
                 }).on("mouseout", function (d, i) {
-                    d3.select(this).interrupt();
-                    d3.select(this).transition(context.transition).style("fill", context.baseColor);
+                    d3.select(this).transition().duration(300).style("fill", context.baseColor);
                 });
             });
         }
