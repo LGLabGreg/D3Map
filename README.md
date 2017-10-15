@@ -1,3 +1,1 @@
-## ECMAScript 6 Tutorial
-
-Starting point for the ECMAScript 6 Data Tutorial
+## ECMAScript 6 D3.js map
